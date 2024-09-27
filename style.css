@@ -1,0 +1,94 @@
+*{
+   margin:0px;
+   padding:0px;
+
+}
+.homapage_title{
+    margin-left: 190px;
+}
+.titleBox{
+    display: flex;
+    flex-direction: row;
+    background: rgb(14, 185, 14);
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.titleList{
+    display: flex;
+    background: rgb(14, 185, 14);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+}
+.listbox{
+    padding:4px;
+}
+.right_title{
+    background: rgb(21, 103, 255);
+    padding: 2px;
+    color:aliceblue;
+    margin-right:10px
+    
+}
+
+#list_menu
+{
+position: relative;
+display: inline-block;
+}
+.event_menu{
+bottom:0;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.display{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    width:1200px;
+    height:100%;
+}
+
+.dropdown_cont{
+    display:none;
+    position: absolute;
+    z-index:1;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.event_summery{
+    flex-wrap: wrap;
+}
+.dropList{
+    display:block;
+    color:block;
+    text-decoration: none;
+}
+.show{
+        display:block;
+}
+
+.event{
+    background-color: rgb(187, 243, 187);
+    display:flex;
+    justify-content:space-between;
+    align-items: space-between;
+    padding:10px;
+    width:1000px;
+
+}
+.word{
+    width:300px;
+    margin-left: auto;
+}
+.event_org{
+    padding: 10px;
+}

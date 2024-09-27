@@ -1,0 +1,20 @@
+*{
+    font-size: medium;
+}
+.title_card{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: green;
+}
+.title{
+    color:white;
+    background: black;
+    padding:10px;
+}
+.userCreate{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
