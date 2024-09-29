@@ -4,20 +4,34 @@
 
 }
 .homapage_title{
-    margin-left: 190px;
+    color: white;
+   
+}
+.titleBox1{
+    display: flex;
+    flex-direction: row;
+    background: green;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+.drop_but{
+    background: rgb(21, 103, 255);
+    padding:5px;
+    color:aliceblue;
 }
 .titleBox{
     display: flex;
     flex-direction: row;
-    background: rgb(14, 185, 14);
+    background: rgb(0, 0, 0);
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
 }
 
 .titleList{
     display: flex;
-    background: rgb(14, 185, 14);
+    background: rgb(0, 0, 0);
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -29,9 +43,10 @@
 }
 .right_title{
     background: rgb(21, 103, 255);
-    padding: 2px;
+    padding: 5px;
     color:aliceblue;
-    margin-right:10px
+    margin-right:10px;
+    text-decoration: none;
     
 }
 
@@ -54,15 +69,20 @@ justify-content: center;
     flex-direction: column;
     width:1200px;
     height:100%;
+    
+}
+.submit_button{
+    margin-top: 20px;
+    padding: 10px;
 }
 
 .dropdown_cont{
     display:none;
     position: absolute;
     z-index:1;
-    background-color: #f1f1f1;
+    background-color: #ffffff;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
 }
 .event_summery{
     flex-wrap: wrap;
@@ -75,6 +95,11 @@ justify-content: center;
 .show{
         display:block;
 }
+.dropList{
+    padding:20px;
+    color:black
+}
+
 
 .event{
     background-color: rgb(187, 243, 187);
