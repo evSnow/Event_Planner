@@ -20,7 +20,7 @@
         <div id="list_menu">
             <button onclick="drop_menu()" class="drop_but">list</button>
             <div id="display_dropdown" class="dropdown_cont">
-                <a class="dropList" href="#">1</a>
+                <a class="dropList" href="/event_edit">1</a>
                 <a class="dropList" href="#">2</a>
                 <a class="dropList" href="#">3</a>
               </div>
@@ -31,7 +31,8 @@
         <div class="titleList">
             <button type="button" class="right_title"><a class="right_title" href="/book">add</a></button>
             <button type="button" class="right_title"><a class="right_title" href="/account_creat">create account</a></button>
-            <button type="button" class="right_title">login</button>
+            <button type="button" class="right_title"><a class="right_title" href="/login">login</a></button>
+            <button type="button" class="right_title"><a class="right_title" href="/logout">logout</a></button>
         </div>
     </div>
     </div>
@@ -66,16 +67,6 @@
         </div>
 
     </div>
-    <ul>
-        <% if (locals.users) {%>
-          <% users.forEach(user => { %>
-            <li>
-              ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>
-            </li>
-          <% }); %>
-        <% } %>
-      </ul>
-      <a href="/create">Create a user</a>
 
 
 

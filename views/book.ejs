@@ -35,36 +35,43 @@
             <div class="event_org">
                 <h2>Attendee Information</h2>
             </div>
+            <form action="/books" method="POST">
             <div class="event">
-                <div class="firstName">First Name:</div>
+                <label for="firstName"><div class="firstName">First Name:</div></label>
                 <div class="word">
                 <input type = "text" id = "firstName" name = "firstName">
             </div>
             </div>
 
             <div class="event">
-                <div class="lastName">Last Name:</div>
+                <label for="lastName"><div class="lastName">Last Name:</div></label>
                 <div class="word">
                 <input type = "text" id = "lastName" name = "lastName">
             </div>
             </div>
 
             <div class="event">
-                <div class="lastName">Last Name:</div>
+                <label for="description"><div class="lastName">Description:</div></label>
                 <div class="word">
-                <input type = "text" id = "lastName" name = "lastName">
+                <input type = "text" id = "description" name = "description">
             </div>
             </div>
 
             <div class="event">
-                <div class="dob">Date of Birth:</div>
+               <label for="date"> <div class="dob">Date of Event:</div> </label>
                 <div class="word">
-                <input type = "text" id = "dob" name = "dob">
+                <input type = "text" id = "date" name = "date">
+            </div>
+            </div>
+            <div class="event">
+                <label for="location"> <div class="dob">Location:</div> </label>
+                <div class="word">
+                <input type = "text" id = "location" name = "location">
             </div>
             </div>
 
             <div class="event">
-                <div class="phone">Phone Number:</div>
+                <label for="phone"><div class="phone">Phone Number:</div></label>
                 <div class="word">
                 <input type = "text" id = "phone" name = "phone">
             </div>
@@ -83,7 +90,7 @@
             </div>
 
             <input type="submit" value="Book Event">
-
+        </form>
         </div>
     </div>
 
