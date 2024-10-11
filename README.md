@@ -1,4 +1,4 @@
-install node.js 
+install node.js install mongodb
 
 type npm install
 
