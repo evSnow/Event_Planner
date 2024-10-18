@@ -54,15 +54,18 @@
                     <div class="event_small_summery">small summery</div>
                 </div>
             </div>
+            <% if (Event.length>0) {   %>
+            <% Event.forEach(Event => { %>
             <div class="event">
                 <div class="symbol">Logo/image</div>
                 <div class="word">
-                    <div class="event_title">title</div>
-                    <div class="event_summery">here is a small description to get people intrested
+                    <div class="event_title"><%= Event.title%></div>
+                    <div class="event_summery"><%= Event.description  %>
                     </div>
-
                 </div>
-            </div>
+            //</div>
+            <% })%>
+            <% } %>
 
         </div>
 

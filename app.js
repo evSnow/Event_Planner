@@ -33,7 +33,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.json());
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
@@ -56,16 +56,30 @@ app.post("/create", (req,res) => {
   })
 })
 
+
 app.post("/books", (req,res) => {
   console.log(req.body);
   const event= new Event(req.body);
-  
   event.save()
   .then((result) => {
     res.redirect('/');
   })
 })
 
+//app.get('/', (req, res) => {
+//  res.render('/books')
+//});
+app.get("/", ( req, res) =>{
+  Event.find()
+  .then((result) =>{
+    console.log(1);
+
+      res.render('index', { Event:result});
+    })
+    .catch((err)=> {
+      console.log(err)
+    })
+})
 
   app.listen(3000);
 module.exports = app;
