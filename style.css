@@ -1,6 +1,20 @@
+/* https://www.w3schools.com/css/css3_images.asp */
 *{
    margin:0px;
    padding:0px;
+
+/*Setting up global stylization for images, layout, etc.*/
+}
+.h1 {
+    font-family: "Times New Roman", Times, serif;
+#logo
+{
+    position: absolute;
+    background: #ffffff;
+    background-image: URL('../picture.png');
+    width: 100px;
+    height: 100px;
+}
 
 }
 .homapage_title{
@@ -55,6 +69,16 @@
 position: relative;
 display: inline-block;
 }
+
+#logo
+{
+    position: absolute;
+    background: #ffffff;
+    background-image: URL('../picture.png');
+    width: 100px;
+    height: 100px;
+}
+
 .event_menu{
 bottom:0;
 display: flex;
