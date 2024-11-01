@@ -1,86 +1,55 @@
-import "./styles.css";
-let calendar = document.querySelector('.calendar')
+const daysTag = document.querySelector(".days"),
+currentDate = document.querySelector(".current-date"),
+prevNextIcon = document.querySelectorAll(".icons span");
 
-const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+// getting new date, current year and month
+let date = new Date(),
+currYear = date.getFullYear(),
+currMonth = date.getMonth();
 
-const isLeapYear = (year) => {
-    return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 ===0)
+// storing full name of all months in array
+const months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+
+const renderCalendar = () => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
+    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
+    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
+    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
+    let liTag = "";
+
+    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
+        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
+
+    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
+        // adding active class to li if the current day, month, and year matched
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
+                     && currYear === new Date().getFullYear() ? "active" : "";
+        liTag += `<li class="${isToday}">${i}</li>`;
+    }
+
+    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
+        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+    }
+    currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
+    daysTag.innerHTML = liTag;
 }
+renderCalendar();
 
-const getFebDays = (year) => {
-    return isLeapYear(year) ? 29 : 28
-}
+prevNextIcon.forEach(icon => { // getting prev and next icons
+    icon.addEventListener("click", () => { // adding click event on both icons
+        // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
 
-const generateCalendar = (month, year) => {
-
-    let calendar_days = calendar.querySelector('.calendar-days')
-    let calendar_header_year = calendar.querySelector('#year')
-
-    let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-    calendar_days.innerHTML = ''
-
-    let currDate = new Date()
-    if (month > 11 || month < 0) month = currDate.getMonth()
-    if (!year) year = currDate.getFullYear()
-
-    let curr_month = `${month_names[month]}`
-    month_picker.innerHTML = curr_month
-    calendar_header_year.innerHTML = year
-
-    // get first day of month
-    
-    let first_day = new Date(year, month, 1)
-
-    for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-        let day = document.createElement('div')
-        if (i >= first_day.getDay()) {
-            day.classList.add('calendar-day-hover')
-            day.innerHTML = i - first_day.getDay() + 1
-            day.innerHTML += `<span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>`
-            if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
-                day.classList.add('curr-date')
-            }
+        if(currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
+            // creating a new date of current year & month and pass it as date value
+            date = new Date(currYear, currMonth, new Date().getDate());
+            currYear = date.getFullYear(); // updating current year with new date year
+            currMonth = date.getMonth(); // updating current month with new date month
+        } else {
+            date = new Date(); // pass the current date as date value
         }
-        calendar_days.appendChild(day)
-    }
-}
-
-let month_list = calendar.querySelector('.month-list')
-
-month_names.forEach((e, index) => {
-    let month = document.createElement('div')
-    month.innerHTML = `<div data-month="${index}">${e}</div>`
-    month.querySelector('div').onclick = () => {
-        month_list.classList.remove('show')
-        curr_month.value = index
-        generateCalendar(index, curr_year.value)
-    }
-    month_list.appendChild(month)
-})
-
-let month_picker = calendar.querySelector('#month-picker')
-
-month_picker.onclick = () => {
-    month_list.classList.add('show')
-}
-
-let currDate = new Date()
-
-let curr_month = {value: currDate.getMonth()}
-let curr_year = {value: currDate.getFullYear()}
-
-generateCalendar(curr_month.value, curr_year.value)
-
-document.querySelector('#prev-year').onclick = () => {
-    --curr_year.value
-    generateCalendar(curr_month.value, curr_year.value)
-}
-
-document.querySelector('#next-year').onclick = () => {
-    ++curr_year.value
-    generateCalendar(curr_month.value, curr_year.value)
-}
+        renderCalendar(); // calling renderCalendar function
+    });
+});
