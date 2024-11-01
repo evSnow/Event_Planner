@@ -5,11 +5,11 @@
 
 .homapage_title {
     color: white;
-}
+} /*Name of subpage*/
 
 .h1 {
     font-family: "Times New Roman", Times, serif;
-}
+} /*Header style data*/
 
 body {
     background-image: url("background.jpg"); /*Any picture fits*/
@@ -17,7 +17,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-} /*Background image support*/
+} /*Background image support, possible other future background features*/
 
 .titleBox1 {
     display: flex;
@@ -26,13 +26,13 @@ body {
     align-items: center;
     justify-content: center;
     padding: 15px;
-}
+} /*Main page top background bar*/
 
 .drop_but {
     background: rgb(21, 103, 255);
     padding:5px;
     color:aliceblue;
-}
+} /*Dropdown menu button*/
 
 .titleBox {
     display: flex;
@@ -42,7 +42,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-}
+} /*Main page content holder*/
 
 .titleList {
     display: flex;
@@ -50,11 +50,11 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;  
-}
+} /*Right-side button holder*/
 
 .listbox {
     padding:4px;
-}
+} /*currently unused*/
 
 .right_title {
     background: rgb(21, 103, 255);
@@ -62,26 +62,26 @@ body {
     color:aliceblue;
     margin-right:10px;
     text-decoration: none;    
-}
+} /*Rightward buttons*/
 
 .aligner {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-} /*As stated below; not the best way, but it's close*/
+} /*As stated below; not optimal, but works; containerizes right buttons*/
 
 #list_menu {
 position: relative;
 display: inline-block;
 min-width: 15%; /*Not the best way, but it's close*/
-}
+} /*leftword dropdown menu holder*/
 
 .event_menu {
 bottom:0;
 display: flex;
 align-items: center;
 justify-content: center;
-}
+} /*Subpage content holder*/
 
 .display {
     display:flex;
@@ -90,12 +90,12 @@ justify-content: center;
     flex-direction: column;
     width:1200px;
     height:100%;    
-}
+} /*format for content holder*/
 
 .submit_button {
     margin-top: 20px;
     padding: 10px;
-}
+} /*As name implies*/
 
 .dropdown_cont {
     display:none;
@@ -104,26 +104,26 @@ justify-content: center;
     background-color: #ffffff;
     min-width: 160px;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-}
+} /*Format for dropdown menu*/
 
 .event_summery {
     flex-wrap: wrap;
-}
+} /*currently unused*/
 
 .dropList {
     display:block;
     color:block;
     text-decoration: none;
-}
+} /*currently unused*/
 
 .show {
         display:block;
-}
+} /*currently unused*/
 
 .dropList {
     padding:20px;
     color:black
-}
+} /*Dropdown menu options*/
 
 .event {
     background-color: rgb(187, 243, 187);
@@ -132,7 +132,7 @@ justify-content: center;
     align-items: space-between;
     padding:10px;
     width:1000px;
-}
+} /*event content holder*/
 
 .word {
     width:300px;
@@ -147,4 +147,4 @@ justify-content: center;
     padding:10px;
     width:1000px;
     opacity: 0.8;
-}
+} /*Subpage title box*/
