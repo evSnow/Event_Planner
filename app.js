@@ -4,7 +4,9 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Account= require('./db/account');
 const Event=require('./db/event');
-const Session = require('express-session');
+const session = require('express-session');
+var cookieSession = require('cookie-session');
+var cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
 var indexRouter = require('./routes/index');
 
@@ -16,21 +18,21 @@ var logoutRouter= require('./routes/logout');
 var event_editRouter= require('./routes/event_edit');
 
 var app = express();
-
+app.use(cookieParser())
 const dbUrl = "mongodb://0.0.0.0:27017/accounts"
 
    mongoose.connect(dbUrl)
   .then((result) => console.log('connected to db'))
   .catch((err)=>console.log(err));
 
-/* Not finish yet will finish soon 
+
   app.use(session({
     secret: "secret word",
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ MongoUrl: dbUrl, }),
+    store: MongoStore.create({ mongoUrl: dbUrl, }),
   }));
-*/
+
 
 
 
@@ -54,21 +56,80 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/event_edit', event_editRouter);
 
+async function getAccountUsername(one) {
+  try {
+    const found = await Account.find({username: one});
+    //console.log(found);
+    return found;
+  } catch (err) {
+    console.error(err);
+  }
+  while (found.hasNext()) {
+    
+  }
+  return null;
+}
 
 app.post("/create", (req,res) => {
-  console.log(req.body);
+  //console.log(req.body);
   const account= new Account(req.body);
+  var userAccount=account.username;
+  var loginAccount= getAccountUsername(userAccount);
+  loginAccount.then(function(data){
+  //var temp=username;
+  //const temp= new Account(data);
 
+  var temp=data[0];
+  console.log(temp);
+  console.log(account);
+  if(temp.username===account.username){ 
+    res.render('account_creat', {isError: "Invalid account arlady exist"});
+  }
+  else { 
   account.save()
   .then((result) => {
     res.redirect('/');
   })
+
+  
+}
 })
-/*  not fully working yet will finish later
+})
+
+
+//  .then((result) => console.log('connected to db'))
+//.catch((err)=>console.log(err));
+
+
+
 app.post("/loginNow", (req,res) => {
+  try{
+  //console.log(req.body);
   const account= new Account(req.body);
-  console.log(req.body);
-   Account.find({username:account.username}, function(req,res){
+  var anna= account.username;
+  //console.log(anna);
+  var loginAccount= getAccountUsername(anna);
+    //console.log(loginAccount);
+  loginAccount.then(function(anna){
+    //console.log(loginAccount);
+    req.session.user ={id: loginAccount.id, username: loginAccount.username, email: loginAccount.email };
+    res.redirect('/')
+    //console.log(session);
+  })
+  }
+  catch (err) {
+    console.error(err);
+  }
+  
+
+  /*)
+  var found= Account.findOne({'username': anna});
+  found.select('username password');
+  var founds= found.exec();
+  console.log('%s',founds.password);
+  */
+  /*  
+    , function(req,res){
     if(err){
       console.log("hi");
     }
@@ -76,9 +137,9 @@ app.post("/loginNow", (req,res) => {
       console.log("dog")
     }
   })
-
-})
 */
+})
+
 
 app.post("/books", (req,res) => {
   console.log(req.body);
@@ -102,7 +163,9 @@ app.get("/", ( req, res) =>{
     .catch((err)=> {
       console.log(err)
     })
-})
+
+  })
+
 
   app.listen(3000);
 module.exports = app;
