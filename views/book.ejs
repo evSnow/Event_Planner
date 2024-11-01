@@ -6,8 +6,8 @@
     <title>cscb</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="list_selection.js"></script>
+</head> <!-- Basic formatting -->
 
-</head>
 <body>
     <div class="titleBox">
             <div id="list_menu">
@@ -17,65 +17,67 @@
                 <a class="dropList" href="#">2</a>
                 <a class="dropList" href="#">3</a>
                 </div>
-            </div>
+            </div> <!-- Dropdown menu -->
 
         <div class="homapage_title">
         <h1>Book Event</h1>
-        </div>
+        </div> <!-- Subpage title -->
 
             <div class="titleList">
             <button type="button" class="right_title">add</button>
             <button type="button" class="right_title"><a class="right_title" href="/account_page/index.html">create account</a></button>
             <button type="button" class="right_title">login</button>
-            </div>
+            </div> <!-- Dropdown list -->
     </div>
 
     <div class="event_menu">
         <div class="display">
             <div class="event_org">
                 <h2>Attendee Information</h2>
-            </div>
-            <form action="/books" method="POST">
+            </div> <!-- Subpage info -->
+            
+        <form action="/books" method="POST">
             <div class="event">
                 <label for="firstName"><div class="firstName">First Name:</div></label>
                 <div class="word">
                 <input type = "text" id = "firstName" name = "firstName">
             </div>
-            </div>
+            </div> <!-- First name field -->
 
             <div class="event">
                 <label for="lastName"><div class="lastName">Last Name:</div></label>
                 <div class="word">
                 <input type = "text" id = "lastName" name = "lastName">
             </div>
-            </div>
+            </div> <!-- Last name field -->
 
             <div class="event">
                 <label for="description"><div class="lastName">Description:</div></label>
                 <div class="word">
                 <input type = "text" id = "description" name = "description">
             </div>
-            </div>
+            </div> <!-- Description -->
 
             <div class="event">
                <label for="date"> <div class="dob">Date of Event:</div> </label>
                 <div class="word">
                 <input type = "text" id = "date" name = "date">
             </div>
-            </div>
+            </div> <!-- Time field -->
+
             <div class="event">
                 <label for="location"> <div class="dob">Location:</div> </label>
                 <div class="word">
                 <input type = "text" id = "location" name = "location">
             </div>
-            </div>
+            </div> <!-- Location field -->
 
             <div class="event">
                 <label for="phone"><div class="phone">Phone Number:</div></label>
                 <div class="word">
                 <input type = "text" id = "phone" name = "phone">
             </div>
-            </div>
+            </div> <!-- Phone number field -->
 
             <div class="event">
                 <div class="eventPick">Event:</div>
@@ -87,12 +89,12 @@
                 <option value="boxLengtheningSample">box lengthening sample</option>
                 </select>
                 </div>
-            </div>
+            </div> <!-- Dropdown menu to select event, WIP -->
 
             <input type="submit" value="Book Event">
         </form>
-        </div>
-    </div>
+        </div> <!-- End of display -->
+    </div> <!-- End of event menu -->
 
 </body>
 </html>
