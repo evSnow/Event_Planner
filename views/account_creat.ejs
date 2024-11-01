@@ -5,31 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/style_creat.css">
-</head>
+</head> <!-- Basic formatting -->
+
 <body>
     <div class="title_card">
         <div class="individual">_</div>
             <h1 class="title">Account Creation</h1>
             <button class="back" ><a href="/" class="back"> go back</a> </button> 
-    </div>
+    </div> <!-- Page title -->
     
     <div class="userCreate">
-    <form action="/create" method="POST">
-    <div class="section">
-        <label for="email">Enter Email</label>
-        <input type="text" id="email" name="email"/>
-    </div>
-    <div class="section">
-        <label for="username">Enter Username</label>
-        <input type="text" id="username" name="username" required>
-    </div>
-    <div class="section" id="password" name="password" required>
-        <label for="password">Enter Password</label>
-        <input type="text" id="password" name="password" required>
-    </div>
+        <form action="/create" method="POST">
+            <div class="section">
+                <label for="email">Enter Email</label>
+                <input type="text" id="email" name="email"/>
+            </div> <!-- Email field -->
+    
+            <div class="section">
+                <label for="username">Enter Username</label>
+                <input type="text" id="username" name="username" required>
+            </div> <!-- Username Field -->
         
-        <input class="submit_button" type="submit" value="Submit">
-    </form>
+            <div class="section" id="password" name="password" required>
+                <label for="password">Enter Password</label>
+                <input type="text" id="password" name="password" required>
+            </div> <!-- Password Field-->
+        
+            <input class="submit_button" type="submit" value="Submit">
+        </form>
     </div>
     
 </body>
