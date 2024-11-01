@@ -1,119 +1,150 @@
 *{
    margin:0px;
    padding:0px;
+}
 
-}
-.homapage_title{
+.homapage_title {
     color: white;
-   
-}
-.titleBox1{
+} /*Name of subpage*/
+
+.h1 {
+    font-family: "Times New Roman", Times, serif;
+} /*Header style data*/
+
+body {
+    background-image: url("/images/background.jpg"); /*Any picture fits*/
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} /*Background image support, possible other future background features*/
+
+.titleBox1 {
     display: flex;
     flex-direction: row;
     background: green;
     align-items: center;
     justify-content: center;
     padding: 15px;
-}
-.drop_but{
+} /*Main page top background bar*/
+
+.drop_but {
     background: rgb(21, 103, 255);
     padding:5px;
     color:aliceblue;
-}
-.titleBox{
+} /*Dropdown menu button*/
+
+.titleBox {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     background: rgb(0, 0, 0);
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-}
+} /*Main page content holder*/
 
-.titleList{
+.titleList {
     display: flex;
     background: rgb(0, 0, 0);
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    
-    
-}
-.listbox{
+    justify-content: space-between;  
+} /*Right-side button holder*/
+
+.listbox {
     padding:4px;
-}
-.right_title{
+} /*currently unused*/
+
+.right_title {
     background: rgb(21, 103, 255);
     padding: 5px;
     color:aliceblue;
     margin-right:10px;
-    text-decoration: none;
-    
-}
+    text-decoration: none;    
+} /*Rightward buttons*/
 
-#list_menu
-{
+.aligner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+} /*As stated below; not optimal, but works; containerizes right buttons*/
+
+#list_menu {
 position: relative;
 display: inline-block;
-}
-.event_menu{
+min-width: 15%; /*Not the best way, but it's close*/
+} /*leftword dropdown menu holder*/
+
+.event_menu {
 bottom:0;
 display: flex;
 align-items: center;
 justify-content: center;
+} /*Subpage content holder*/
 
-}
-.display{
+.display {
     display:flex;
     justify-content:center;
     align-items: center;
     flex-direction: column;
     width:1200px;
-    height:100%;
-    
-}
-.submit_button{
+    height:100%;    
+} /*format for content holder*/
+
+.submit_button {
     margin-top: 20px;
     padding: 10px;
-}
+} /*As name implies*/
 
-.dropdown_cont{
+.dropdown_cont {
     display:none;
     position: absolute;
     z-index:1;
     background-color: #ffffff;
     min-width: 160px;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-}
-.event_summery{
+} /*Format for dropdown menu*/
+
+.event_summery {
     flex-wrap: wrap;
-}
-.dropList{
+} /*currently unused*/
+
+.dropList {
     display:block;
     color:block;
     text-decoration: none;
-}
-.show{
+} /*currently unused*/
+
+.show {
         display:block;
-}
-.dropList{
+} /*currently unused*/
+
+.dropList {
     padding:20px;
     color:black
-}
+} /*Dropdown menu options*/
 
-
-.event{
+.event {
     background-color: rgb(187, 243, 187);
     display:flex;
     justify-content:space-between;
     align-items: space-between;
     padding:10px;
     width:1000px;
+} /*event content holder*/
 
-}
-.word{
+.word {
     width:300px;
     margin-left: auto;
 }
+
 .event_org{
-    padding: 10px;
-}
+    background-color: rgb(117, 203, 127);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    width:1000px;
+    opacity: 0.8;
+} /*Subpage title box*/

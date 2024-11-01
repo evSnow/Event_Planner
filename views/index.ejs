@@ -4,76 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cscb</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="/javascripts/list_selection.js"></script>
+</head> <!-- Basic formatting -->
 
-</head>
 <body>
-    <script>0</script>
-    <div class="titleBox1">    
+    <div class="titleBox1">
         <div class="homapage_title">
         <h1>Event planner</h1>
         </div>
-    </div>
+    </div> <!-- Main titlepage -->
+
     <div class="titleBox">
-    <div>
         <div id="list_menu">
             <button onclick="drop_menu()" class="drop_but">list</button>
             <div id="display_dropdown" class="dropdown_cont">
                 <a class="dropList" href="/event_edit">1</a>
                 <a class="dropList" href="#">2</a>
                 <a class="dropList" href="#">3</a>
-              </div>
-        </div>
-        
-    </div>
-    <div>
+            </div>
+        </div> <!-- Dropdown menu -->
+
         <div class="titleList">
             <button type="button" class="right_title"><a class="right_title" href="/book">add</a></button>
             <button type="button" class="right_title"><a class="right_title" href="/account_creat">create account</a></button>
             <button type="button" class="right_title"><a class="right_title" href="/login">login</a></button>
             <button type="button" class="right_title"><a class="right_title" href="/logout">logout</a></button>
-        </div>
+        </div> <!-- Rightward buttons -->
     </div>
-    </div>
+
     <div class="event_menu">
         <div class="display">
             <div class="event_org">
                 <h2>Current event</h2>
-            </div>
+            </div> <!-- Title -->
+
             <div class="event">
                 <button type="button" class="add">+</button>
                 <div class="word">
                     <div class="event_title">click the + to add a event</div>
                 </div>
-            </div>
+            </div> <!-- Addition button + info -->
+
             <div class="event">
                 <div class="symbol">=</div>
                 <div class="word">
                     <div class="event_title">title</div>
                     <div class="event_small_summery">small summery</div>
                 </div>
-            </div>
+            </div> <!-- Information -->
+
             <% if (Event.length>0) {   %>
             <% Event.forEach(Event => { %>
             <div class="event">
                 <div class="symbol">Logo/image</div>
                 <div class="word">
                     <div class="event_title"><%= Event.title%></div>
-                    <div class="event_summery"><%= Event.description  %>
-                    </div>
+                    <div class="event_summery"><%= Event.description%></div>
                 </div>
-            //</div>
-            <% })%>
-            <% } %>
-
+            </div>
+            <% })%> <!-- End of loop -->
+            <% } %> <!-- End of if statement -->
         </div>
-
     </div>
-
-
-
-    </div>
-    
 </body>
 </html>
