@@ -9,14 +9,14 @@ var cookieSession = require('cookie-session');
 var cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
 var indexRouter = require('./routes/index');
-
+//var calendarRouter = require('./routes/calendarRoute.js');
 var usersRouter = require('./routes/users');
 var accountRouter = require('./routes/account_creat');
 var bookRouter= require('./routes/book');
 var loginRouter= require('./routes/login');
 var logoutRouter= require('./routes/logout');
 var event_editRouter= require('./routes/event_edit');
-
+var ticketRouter = require('./routes/ticket');
 var app = express();
 app.use(cookieParser())
 const dbUrl = "mongodb://0.0.0.0:27017/accounts"
@@ -55,11 +55,17 @@ app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/event_edit', event_editRouter);
+app.use('/ticket', ticketRouter);
 
-async function getAccountUsername(one) {
+//app.use('/calendar', calendarRouter);
+
+
+
+function getAccountUsername(one) {
   try {
-    const found = await Account.find({username: one});
+    var found = Account.findOne({username: one});
     //console.log(found);
+   
     return found;
   } catch (err) {
     console.error(err);
@@ -67,34 +73,32 @@ async function getAccountUsername(one) {
   while (found.hasNext()) {
     
   }
-  return null;
 }
 
-app.post("/create", (req,res) => {
+app.post("/create", async function (req,res) {
   //console.log(req.body);
   const account= new Account(req.body);
   var userAccount=account.username;
-  var loginAccount= getAccountUsername(userAccount);
-  loginAccount.then(function(data){
-  //var temp=username;
-  //const temp= new Account(data);
+  var loginAccount= await getAccountUsername(userAccount);
 
-  var temp=data[0];
-  console.log(temp);
+  console.log(loginAccount);
   console.log(account);
-  if(temp.username===account.username){ 
-    res.render('account_creat', {isError: "Invalid account arlady exist"});
+  if(loginAccount==null){ 
+    console.log("hi")
+    account.save()
+    .then((result) => {
+      res.redirect('/');
+    }
+  )
   }
   else { 
-  account.save()
-  .then((result) => {
-    res.redirect('/');
-  })
+    console.log("no");
+    res.render('account_creat', {isError: "Invalid account arlady exist"});
 
   
 }
 })
-})
+
 
 
 //  .then((result) => console.log('connected to db'))
@@ -102,20 +106,24 @@ app.post("/create", (req,res) => {
 
 
 
-app.post("/loginNow", (req,res) => {
+app.post("/loginNow", async function (req,res) {
   try{
-  //console.log(req.body);
+  console.log(req.body);
   const account= new Account(req.body);
   var anna= account.username;
   //console.log(anna);
-  var loginAccount= getAccountUsername(anna);
+  var loginAccount= await getAccountUsername(anna);
     //console.log(loginAccount);
-  loginAccount.then(function(anna){
-    //console.log(loginAccount);
+  
+    console.log(loginAccount);
+    if(loginAccount != null){ 
     req.session.user ={id: loginAccount.id, username: loginAccount.username, email: loginAccount.email };
     res.redirect('/')
+    }
+    else{
+      res.redirect('/login');
+    }
     //console.log(session);
-  })
   }
   catch (err) {
     console.error(err);
@@ -166,6 +174,9 @@ app.get("/", ( req, res) =>{
 
   })
 
+  app.get('/calendar', function(req, res, next) {
+    res.render('calendar', { title: 'calendar' });
+  });
 
-  app.listen(3000);
+  app.listen(4000);
 module.exports = app;
