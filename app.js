@@ -75,18 +75,35 @@ function getAccountUsername(one) {
   }
 }
 
+
+
+function getEventName(one) {
+  try {
+    var found = Event.findOne({firstName: one});
+    //console.log(found);
+   
+    return found;
+  } catch (err) {
+    console.error(err);
+  }
+  while (found.hasNext()) {
+    
+  }
+}
+
 app.post("/create", async function (req,res) {
   //console.log(req.body);
   const account= new Account(req.body);
   var userAccount=account.username;
   var loginAccount= await getAccountUsername(userAccount);
 
-  console.log(loginAccount);
+  //console.log(loginAccount);
   console.log(account);
   if(loginAccount==null){ 
     console.log("hi")
     account.save()
     .then((result) => {
+      req.session.user ={password: account.password, username: account.username, email: account.email };
       res.redirect('/');
     }
   )
@@ -142,12 +159,38 @@ app.post("/books", (req,res) => {
     res.redirect('/');
   })
 })
+app.post('/direct', (req,res)=>{
+  //console.log(req.body);
+  console.log("hello");
+  //.log(req.body.name)
+  console.log(req.body.name)
+  Event.findOne({firstName: req.body.name})
+  .then((result) =>{
+    console.log(result);
 
+    res.render('event_detail',  { Event:result});
+    })
+    .catch((err)=> {
+      console.log(err)
+    })
+  })
+
+//app.get('/event_detail', (req, res)=>{
+ 
+
+/*
+app.post('/event_detail', (req,res)=> {
+  Event.find()
+  .then((result) =>{
+})
+*/
 //app.get('/', (req, res) => {
 //  res.render('/books')
 //});
 app.get("/", ( req, res) =>{
-  console.log(Object.keys(req.session).length);
+  console.log(req.session.username);
+  console.log(req.session.id);
+
   console.log("hi");
   if(Object.keys(req.session).length ==1){ 
   Event.find()
@@ -161,6 +204,7 @@ app.get("/", ( req, res) =>{
     })
   }
   else{
+    console.log(3);
     Event.find()
     .then((result) =>{  
         res.render('index1', { Event:result});
@@ -171,6 +215,8 @@ app.get("/", ( req, res) =>{
       
   }
   })
+
+
 
   app.get('/calendar', function(req, res, next) {
     res.render('calendar', { title: 'calendar' });

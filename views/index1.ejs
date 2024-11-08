@@ -38,7 +38,7 @@
             </div> <!-- Title -->
 
             <div class="event">
-                <button type="button" class="add">+</button>
+                <button type="button" class="add"><a href="/book">+</a></button>
                 <div class="word">
                     <div class="event_title">click the + to add a event</div>
                 </div>
@@ -52,17 +52,26 @@
                 </div>
             </div> <!-- Information -->
 
+            
             <% if (Event.length>0) {   %>
-            <% Event.forEach(Event => { %>
-            <div class="event">
-                <div class="symbol">Logo/image</div>
-                <div class="word">
-                    <div class="event_title"><%= Event.title%></div>
-                    <div class="event_summery"><%= Event.description%></div>
+                <% Event.forEach(Event => { %>
+                    
+                    <form action="/direct" method="post"> 
+                    <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
+                <button type="submit" class="event_button">
+                
+                <div class="event">
+                    <div class="symbol">Logo/image</div>
+                    <div class="word">
+                        <div class="event_title"><%= Event.firstName%></div>
+                        <div class="event_summery"><%= Event.description%></div>
+                    </div>    
                 </div>
-            </div>
-            <% })%> <!-- End of loop -->
-            <% } %> <!-- End of if statement -->
+    
+                
+            </button></form>
+                <% })%> <!-- End of loop -->
+                <% } %> <!-- End of if statement -->
         </div>
     </div>
 </body>

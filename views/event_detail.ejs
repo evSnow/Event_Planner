@@ -29,50 +29,35 @@
             <button type="button" class="right_title"><a class="right_title" href="/book">add</a></button>
             <button type="button" class="right_title"><a class="right_title" href="/account_creat">create account</a></button>
             <button type="button" class="right_title"><a class="right_title" href="/login">login</a></button>
+            <button type="button" class="right_title"><a class="right_title" href="/">homepage</a></button>
         </div> <!-- Rightward buttons -->
     </div>
 
     <div class="event_menu">
         <div class="display">
             <div class="event_org">
-                <h2>Current event</h2>
+                <h2>Event: <%=Event.firstName%></h2>
             </div> <!-- Title -->
 
             <div class="event">
-                <button type="button" class="add"><a href="/book">+</a></button>
-                <div class="word">
-                    <div class="event_title">click the + to add a event</div>
-                </div>
-            </div> <!-- Addition button + info -->
-
-            <div class="event">
-                <div class="symbol">=</div>
-                <div class="word">
-                    <div class="event_title">title</div>
-                    <div class="event_small_summery">small summery</div>
-                </div>
-            </div> <!-- Information -->
-
-            <% if (Event.length>0) {   %>
-            <% Event.forEach(Event => { %>
+            
+            
                 
-                <form action="/direct" method="post"> 
-                <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
-            <button type="submit" class="event_button">
-            
-            <div class="event">
-                <div class="symbol">Logo/image</div>
-                <div class="word">
-                    <div class="event_title"><%= Event.firstName%></div>
-                    <div class="event_summery"><%= Event.description%></div>
-                </div>    
-            </div>
+                <ul class="row">Description: <%= Event.description%></ul>
+                </div>
+                <div class="event">
+                <ul class="row">date: <%= Event.date%></ul>
+                </div>
+                <div class="event"> 
+                <ul class="row">Time:  <%= Event.lastName%></ul>
+                </div>
+                <div class="event">
+                <ul class="row">location: <%= Event.location%></ul>
+                </div>
 
             
-        </button></form>
-            <% })%> <!-- End of loop -->
-            <% } %> <!-- End of if statement -->
+        
         </div>
     </div>
-</body>
+</bod
 </html>
