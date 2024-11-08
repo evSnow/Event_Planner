@@ -14,11 +14,11 @@ var usersRouter = require('./routes/users');
 var accountRouter = require('./routes/account_creat');
 var bookRouter= require('./routes/book');
 var loginRouter= require('./routes/login');
-var logoutRouter= require('./routes/logout');
+//var logoutRouter= require('./routes/logout');
 var event_editRouter= require('./routes/event_edit');
 var ticketRouter = require('./routes/ticket');
 var app = express();
-app.use(cookieParser())
+app.use(cookieParser());
 const dbUrl = "mongodb://0.0.0.0:27017/accounts"
 
    mongoose.connect(dbUrl)
@@ -53,7 +53,7 @@ app.use('/account_creat', accountRouter, );
 app.use('/book', bookRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
-app.use('/logout', logoutRouter);
+//app.use('/logout', logoutRouter);
 app.use('/event_edit', event_editRouter);
 app.use('/ticket', ticketRouter);
 
@@ -130,22 +130,7 @@ app.post("/loginNow", async function (req,res) {
   }
   
 
-  /*)
-  var found= Account.findOne({'username': anna});
-  found.select('username password');
-  var founds= found.exec();
-  console.log('%s',founds.password);
-  */
-  /*  
-    , function(req,res){
-    if(err){
-      console.log("hi");
-    }
-    else{
-      console.log("dog")
-    }
-  })
-*/
+
 })
 
 
@@ -162,6 +147,9 @@ app.post("/books", (req,res) => {
 //  res.render('/books')
 //});
 app.get("/", ( req, res) =>{
+  console.log(Object.keys(req.session).length);
+  console.log("hi");
+  if(Object.keys(req.session).length ==1){ 
   Event.find()
   .then((result) =>{
     console.log(1);
@@ -171,12 +159,28 @@ app.get("/", ( req, res) =>{
     .catch((err)=> {
       console.log(err)
     })
-
+  }
+  else{
+    Event.find()
+    .then((result) =>{  
+        res.render('index1', { Event:result});
+      })
+      .catch((err)=> {
+        console.log(err)
+      })
+      
+  }
   })
 
   app.get('/calendar', function(req, res, next) {
     res.render('calendar', { title: 'calendar' });
   });
-
+app.get('/logout', (req, res)=>{
+  console.log("hi");
+  req.session.destroy((err) =>{
+    res.redirect('/')
+  });
+  
+});
   app.listen(4000);
 module.exports = app;
