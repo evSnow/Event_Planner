@@ -1,0 +1,175 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text */
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Title Sections */
+.titleBox1, .titleBox {
+    background-color: #1b5e20; /* Dark green */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.homapage_title h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Dropdown Menu */
+#list_menu {
+    position: relative;
+    display: inline-block;
+}
+
+.drop_but {
+    background-color: #43a047; /* Green button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.drop_but:hover {
+    background-color: #388e3c;
+}
+
+.dropdown_cont {
+    display: none;
+    position: absolute;
+    background-color: #2c2c2c; /* Dark dropdown */
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+/* Align Buttons in a Single Line */
+.titleList {
+    display: flex;
+    justify-content: center; /* Center-aligns content horizontally */
+    gap: 10px; /* Adds spacing between buttons */
+    margin-top: 10px;
+}
+
+.right_title {
+    background-color: #66bb6a; /* Brighter green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.right_title a {
+    color: white;
+    text-decoration: none;
+}
+
+.right_title:hover {
+    background-color: #388e3c;
+}
+
+/* Event Menu */
+.event_menu {
+    background-color: #2c2c2c; /* Darker background for events */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.event_org h2 {
+    color: #81c784; /* Light green */
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #333; /* Slightly lighter for contrast */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.event div {
+    font-size: 1em;
+    color: #ffffff;
+}
+
+.symbol {
+    font-weight: bold;
+    color: #81c784;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.word {
+    flex: 1;
+}
+
+.event_title {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #e0e0e0;
+}
+
+.event_small_summery, .event_summery {
+    font-size: 0.9em;
+    color: #bdbdbd;
+}
+
+/* Add Event Button */
+.add {
+    background-color: #43a047;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.add:hover {
+    background-color: #388e3c;
+    transform: scale(1.1);
+}
+
+/* Smooth Hover Animations */
+button, .right_title, .drop_but {
+    transition: all 0.3s ease;
+}
+
+button:hover, .right_title:hover, .drop_but:hover {
+    transform: translateY(-3px);
+}
