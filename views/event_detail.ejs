@@ -30,7 +30,7 @@
             <%if(ses==0){%>
             <button type="button" class="right_title"><a class="right_title" href="./account_creat">create account</a></button>
             <button type="button" class="right_title"><a class="right_title" href="./login">login</a></button>
-            <button type="button" class="right_title"><a class="right_title" href="./homepage">homepage</a></button>
+            <button type="button" class="right_title"><a class="right_title" href="./">homepage</a></button>
             <%}else{%>
                 <button type="button" class="right_title"><a class="right_title" href="./logout">logout</a></button>
                 <button type="button" class="right_title"><a class="right_title" href="./">homepage</a></button>
@@ -67,7 +67,7 @@
                 <div class="event">
                     <form action="/currentBook" method="post"> 
                         <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
-                    <button type="submit" class="event_button">
+                    <button type="submit">
                         book now
                     </button></form>
                  <% }  %>
