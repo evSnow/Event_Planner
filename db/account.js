@@ -13,6 +13,9 @@ const accSchema = new Schema({
     password: {
         type: String,
         require: true
+    },
+    booked: {
+        type: [String],
     }
 }, { timestamp: true });
 const account = mongoose.model('account', accSchema);

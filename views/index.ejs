@@ -19,16 +19,17 @@
         <div id="list_menu">
             <button onclick="drop_menu()" class="drop_but">list</button>
             <div id="display_dropdown" class="dropdown_cont">
-                <a class="dropList" href="/calendar">clander</a>
-                <a class="dropList" href="/ticket">Temp credit infomation</a>
-                <a class="dropList" href="#">3</a>
+                <a class="dropList" href="./calendar">Calender</a>
+                <a class="dropList" href="./ticket">Payment</a>
+                <a class="dropList" href="./book">Book Event</a>
+                <a class="dropList" href="./createEvent">Book Event</a>
             </div>
         </div> <!-- Dropdown menu -->
 
         <div class="titleList">
-            <button type="button" class="right_title"><a class="right_title" href="/book">add</a></button>
-            <button type="button" class="right_title"><a class="right_title" href="/account_creat">create account</a></button>
-            <button type="button" class="right_title"><a class="right_title" href="/login">login</a></button>
+            <button type="button" class="right_title"><a class="right_title" href="./account_creat">create account</a></button>
+            <button type="button" class="right_title"><a class="right_title" href="./login">login</a></button>
+            <button type="button" class="right_title"><a class="right_title" href="./">homepage</a></button>
         </div> <!-- Rightward buttons -->
     </div>
 
@@ -55,13 +56,14 @@
 
             <% if (Event.length>0) {   %>
             <% Event.forEach(Event => { %>
-                
+                <div class="linebox">
+                </div>
                 <form action="/direct" method="post"> 
                 <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
             <button type="submit" class="event_button">
             
             <div class="event">
-                <div class="symbol">Logo/image</div>
+                <img class="symbol" src="/image/defultLogo.png">
                 <div class="word">
                     <div class="event_title"><%= Event.firstName%></div>
                     <div class="event_summery"><%= Event.description%></div>

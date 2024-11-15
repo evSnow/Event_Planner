@@ -116,11 +116,14 @@ app.post("/create", async function (req,res) {
 }
 })
 
-
-
-//  .then((result) => console.log('connected to db'))
-//.catch((err)=>console.log(err));
-
+app.get("/pofileBooked", (req,res)=>{
+  console.log(req.session.user.username);
+  Account.findOne({username: req.session.user.username})
+  .then((result) =>{
+    //console.log(result);
+  res.render('pofileBooked', { AccSession:result});
+})
+})
 
 
 app.post("/loginNow", async function (req,res) {
@@ -162,7 +165,9 @@ app.post("/books", (req,res) => {
 app.post('/direct', (req,res)=>{
   //console.log(req.body);
   console.log("hello");
+  console.log(req.session.user);
   //.log(req.body.name)
+  
   console.log(req.body.name)
   Event.findOne({firstName: req.body.name})
   .then((result) =>{
@@ -174,6 +179,20 @@ app.post('/direct', (req,res)=>{
       console.log(err)
     })
   })
+
+  app.post('/currentBook', (req,res)=>{
+    console.log("hello");
+
+    Account.updateOne({username: req.session.user.username},{$push: {booked: req.body.name}})
+    .then((result)=>{
+      console.log(result);
+      res.redirect('/');
+    }
+  )
+      .catch((err)=> {
+        console.log(err)
+      })
+    })
 
 //app.get('/event_detail', (req, res)=>{
  
@@ -197,7 +216,7 @@ app.get("/", ( req, res) =>{
   .then((result) =>{
     console.log(1);
 
-      res.render('index', { Event:result});
+      res.render('index', { Event:result, fivw:1});
     })
     .catch((err)=> {
       console.log(err)

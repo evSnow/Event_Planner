@@ -40,39 +40,22 @@
                 <h2>Current event</h2>
             </div> <!-- Title -->
 
-            <div class="event">
-                <button type="button" class="add"><a href="/book">+</a></button>
-                <div class="word">
-                    <div class="event_title">click the + to add a event</div>
-                </div>
-            </div> <!-- Addition button + info -->
 
-            <div class="event">
-                <div class="symbol">=</div>
-                <div class="word">
-                    <div class="event_title">title</div>
-                    <div class="event_small_summery">small summery</div>
-                </div>
-            </div> <!-- Information -->
 
             
-            <% if (Event.length>0) {   %>
-                <% Event.forEach(Event => { %>
-                    <form action="/direct" method="post"> 
-                    <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
-                <button type="submit" class="event_button">
+            <% if (AccSession.booked!=0) {   %>
+                <% for(var i=0; i<AccSession.booked.length; i++){%>
+                    <hr class="line">
                 
                 <div class="event">
-                    <img class="symbol" src="/image/defultLogo.png">
                     <div class="word">
-                        <div class="event_title"><%= Event.firstName%></div>
-                        <div class="event_summery"><%= Event.description%></div>
+                        <div class="event_title"><%= AccSession.booked[i]%></div>
+                        
                     </div>    
                 </div>
 
-                
-            </button></form>
-                <% })%> <!-- End of loop -->
+            <hr class="line">
+                <% }%> <!-- End of loop -->
                 <% } %> <!-- End of if statement -->
         </div>
     </div>

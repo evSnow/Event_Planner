@@ -14,7 +14,7 @@ const eveSchema = new Schema({
         type: String,
         require: true
     },
-    Date: {
+    date: {
         type: String,
         require: true
     },
