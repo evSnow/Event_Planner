@@ -25,10 +25,15 @@
         </div> <!-- Subpage title -->
 
             <div class="titleList">
-            <button type="button" class="right_title"><a class="right_title" href="./account_creat">create account</a></button>
-            <button type="button" class="right_title"><a class="right_title" href="./login">login</a></button>
-            <button type="button" class="right_title"><a class="right_title" href="./homepage">homepage</a></button>
-
+                <%if(ses==0){%>
+                    <button type="button" class="right_title"><a class="right_title" href="./account_creat">create account</a></button>
+                    <button type="button" class="right_title"><a class="right_title" href="./login">login</a></button>
+                    <button type="button" class="right_title"><a class="right_title" href="./homepage">homepage</a></button>
+                    <%}else{%>
+                        <button type="button" class="right_title"><a class="right_title" href="./logout">logout</a></button>
+                        <button type="button" class="right_title"><a class="right_title" href="./">homepage</a></button>
+                        <button type="button" class="right_title"><a class="right_title" href="./pofileBooked">current booked</a></button>
+                    <%}%>
             </div> <!-- Dropdown list -->
     </div>
 
