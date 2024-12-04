@@ -2,14 +2,16 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#Event-Planner"Event Planner</a>
-      <a href="#Install"Installation Process</a>
-        <ul>
-          <li><a href="#requirements">Requirements</a></li>
-          <li><a href="#setup">Setup</a></li>
-        </ul>
-      <a href="#usage"Usage</a>
-      </li>
+      <ul>
+        <a href="#Event-Planner"Event Planner</a>
+        <a href="#Install"Installation Process</a>
+          <ul>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#setup">Setup</a></li>
+          </ul>
+        <a href="#usage"Usage</a>
+        </li>
+      <ul>
   </ol>
 </details>
 
