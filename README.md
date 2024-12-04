@@ -1,4 +1,4 @@
-### Table of Contents
+<summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#event-planner">Event Planner</a>
