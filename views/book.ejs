@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cscb</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/bookstyle.css">
     <script src="list_selection.js"></script>
 </head> <!-- Basic formatting -->
 
@@ -16,7 +16,6 @@
                 <a class="dropList" href="./calendar">Calender</a>
                 <a class="dropList" href="./ticket">Payment</a>
                 <a class="dropList" href="./book">Book Event</a>
-                <a class="dropList" href="./createEvent">Book Event</a>
                 </div>
             </div> <!-- Dropdown menu -->
 
@@ -64,6 +63,14 @@
                 <input type = "text" id = "description" name = "description">
             </div>
             </div> <!-- Description -->
+
+            <div class="event">
+                <label for="small_description"><div class="lastName">Short description (200 character):</div></label>
+                <div class="word">
+                <input type = "text" maxlength="200" id = "small_description" name = "small_description"  >
+            </div>
+
+            </div>
 
             <div class="event">
                <label for="date"> <div class="dob">Date of Event:</div> </label>

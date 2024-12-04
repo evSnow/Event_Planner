@@ -3,23 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+
+    <script src="/javascripts/list_selection.js"></script> 
     <title>Document</title>
 </head> <!-- Basic formatting -->
 <body>
-    <h2>Login</h2>
+    <div class="login-box">
+        <div class="login-header">
+            <header>Login</header>
+        </div>
+        <form action="/loginNow" method="POST">
+                <div class="input-box">
+                    <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="input-field" placeholder="username" autocomplete="off" required>
+                <small class="error-message">Please enter a valid email</small>
+            </div>
+            <div class="input-box">
+                <label for="password">Password:</label>
+                <input type="password"  id="password" name="password" class="input-field" placeholder="Password" autocomplete="off" required>
+            </div>
+            <div class="forgot">
+                <section>
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </section>
+                <section>
+                    <a href="#">Forgot password?</a>
+                </section>
+            </div>
+            <div class="input-submit">
+                <button type="submit" class="submit-btn">Sign In</button>
+            </div>
+        </form>
+        <div class="sign-up-link">
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+        </div>
+    </div>
 
-<form action="/loginNow" method="POST">
-  <!-- Username field for login -->
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username">
-
-  <!-- Password field for login -->
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password">
-
-  <!-- Submit button to log in -->
-  <button type="submit">Login</button>
-</form>
-
+    <script src="script.js"></script>
 </body>
 </html>

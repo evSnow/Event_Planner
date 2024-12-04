@@ -1,0 +1,155 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(to right, #16222A 0%, #3A6073 100%);
+    color: #f8f9fa;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Title Section */
+.titleBox {
+    background-color: #34495e;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.homapage_title h1 {
+    font-size: 2.8rem;
+}
+
+/* Dropdown Menu Styling */
+#list_menu {
+    position: relative;
+    display: inline-block;
+}
+
+.drop_but {
+    background-color: #16a085;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.drop_but:hover {
+    background-color: #149174;
+    transform: translateY(-2px);
+}
+
+.dropdown_cont {
+    display: none;
+    position: absolute;
+    background-color: #2c3e50;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+#list_menu:hover .dropdown_cont {
+    display: block;
+}
+
+.dropList {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropList:hover {
+    background-color: #16a085;
+}
+
+/* Links Styling - Single Line Layout */
+.titleList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.titleList a {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.titleList a:hover {
+    background-color: #229954;
+    transform: scale(1.05);
+}
+
+/* Event Menu Styling */
+.event_menu {
+    background-color: #343a40;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.event_org h2 {
+    color: #1abc9c;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form and Inputs Styling */
+.event label {
+    color: #1abc9c;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    background-color: #495057;
+    color: #ecf0f1;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #27ae60;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #229954;
+    transform: translateY(-2px);
+}
