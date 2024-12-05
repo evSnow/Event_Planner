@@ -33,8 +33,8 @@ The event planner allows a user to create, book, and track events submitted by o
 * [![EJS][EJS.js]][EJS-url]
 
 
-[MongoDB.js]: https://www.mongodb.com/favicon.ico
-[EJS.js]: https://ejs.co/favicon.ico
+[MongoDB.js]: https://img.shields.io/badge/MongoDB-202020?style=for-the-badge&logo=MongoDB
+[EJS.js]: https://img.shields.io/badge/EJS-202020?style=for-the-badge&logo=EJS
 
 [MongoDB-url]: https://www.mongodb.com/
 [EJS-url]: https://ejs.co/
