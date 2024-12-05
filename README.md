@@ -29,5 +29,12 @@ The event planner allows a user to create, book, and track events submitted by o
 
 ## Built With
 
-* [![MongoDB][https://www.mongodb.com/favicon.ico]][https://www.mongodb.com/]]
-* [![EJS][https://ejs.co/favicon.ico]][https://ejs.co/]
+* [![MongoDB][mongodb.js]][mongodb-url]
+* [![EJS][ejs.js]][ejs-url]
+
+
+[mongodb.js]: https://www.mongodb.com/favicon.ico
+[ejs.js]: https://ejs.co/favicon.ico
+
+[mongodb-url]: https://www.mongodb.com/
+[ejs-url]: https://ejs.co/
