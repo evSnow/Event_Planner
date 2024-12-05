@@ -14,7 +14,7 @@
     <li><a href="#built-with">Built With</a></li>
   </ol>
 
-## Event Planner
+## About This Program
 There are many great events around the UNT campus hosted by a variety of groups; however, the lack of coordination as well as the difficulty of finding some events makes planning much more difficult. This is where the event planner comes into play, allowing guests and account holders to:
 * Create their own events to be hosted on the event planner database
 * View a list of all events on the database
