@@ -10,6 +10,7 @@
 
 <body>
     <div class="titleBox">
+<<<<<<< HEAD
         <div class="homapage_title">
         <h1>Event Planner</h1>
         </div>
@@ -29,6 +30,30 @@
                 <button type="button" class="right_title"><a class="right_title" href="./">Homepage</a></button>
                 <button type="button" class="right_title"><a class="right_title" href="./pofileBooked">Currently Booked</a></button>
             <%}%>
+=======
+
+
+        <div class="homapage_title">
+        <h1>Book Event</h1>
+        </div> <!-- Subpage title -->
+            <div id="list_menu">
+            <button onclick="drop_menu()" class="drop_but">List</button>
+                <div id="display_dropdown" class="dropdown_cont">
+                <a class="dropList" href="./calendar">Calender</a>
+                <a class="dropList" href="./ticket">Payment</a>
+                <a class="dropList" href="./book">Book Event</a>
+                </div>
+            </div> <!-- Dropdown menu -->
+                <%if(ses==0){%>
+                    <button type="button" class="right_title"><a class="right_title" href="./account_creat">Create Account</a></button>
+                    <button type="button" class="right_title"><a class="right_title" href="./login">Login</a></button>
+                    <button type="button" class="right_title"><a class="right_title" href="./">Homepage</a></button>
+                    <%}else{%>
+                        <button type="button" class="right_title"><a class="right_title" href="./logout">Logout</a></button>
+                        <button type="button" class="right_title"><a class="right_title" href="./">Homepage</a></button>
+                        <button type="button" class="right_title"><a class="right_title" href="./pofileBooked">Currently Booked</a></button>
+                    <%}%>
+>>>>>>> f3a928cec08127d22d0b2743166dc616a82e63a3
     </div>
 
     <div class="event_menu">
