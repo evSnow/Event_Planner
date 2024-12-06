@@ -29,7 +29,11 @@ Although not all events are guaranteed to show up within the database, a central
 * mongodb
 
 ### Setup
-Type `npm install` in your terminal of choosing, followed by `npm start` to run the program.
+Type `npm install` in your terminal of choosing while navigated to the main folder of the project, followed by `npm start` to run the program. If the program does not successfully run, install the following four packages with `npm install <name>` before attempting again:
+* `express`
+* `path`
+* `morgan`
+* `mongoose`
 
 ## Usage
 The event planner allows a user to create, book, and track events submitted by other users of the program. Additionally, users can save events they have signed up for if done so when logged into the system.
