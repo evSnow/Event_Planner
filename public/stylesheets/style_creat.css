@@ -65,8 +65,15 @@ body {
     color: green;
 }
 .userCreate{
+    background-color: #34495e;
+    color: #ffffff;
+    padding: 20px;
+    text-align: right;
+    width: 250px;
     display:flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
