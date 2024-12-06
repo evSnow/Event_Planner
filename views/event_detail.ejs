@@ -16,7 +16,7 @@
         <h1>Book Event</h1>
         </div> <!-- Subpage title -->
             <div id="list_menu">
-            <button onclick="drop_menu()" class="drop_but">list</button>
+            <button onclick="drop_menu()" class="drop_but">List</button>
                 <div id="display_dropdown" class="dropdown_cont">
                 <a class="dropList" href="./calendar">Calender</a>
                 <a class="dropList" href="./ticket">Payment</a>
@@ -24,13 +24,13 @@
                 </div>
             </div> <!-- Dropdown menu -->
                 <%if(ses==0){%>
-                    <button type="button" class="right_title"><a class="right_title" href="./account_creat">create account</a></button>
-                    <button type="button" class="right_title"><a class="right_title" href="./login">login</a></button>
-                    <button type="button" class="right_title"><a class="right_title" href="./">homepage</a></button>
+                    <button type="button" class="right_title"><a class="right_title" href="./account_creat">Create Account</a></button>
+                    <button type="button" class="right_title"><a class="right_title" href="./login">Login</a></button>
+                    <button type="button" class="right_title"><a class="right_title" href="./">Homepage</a></button>
                     <%}else{%>
-                        <button type="button" class="right_title"><a class="right_title" href="./logout">logout</a></button>
-                        <button type="button" class="right_title"><a class="right_title" href="./">homepage</a></button>
-                        <button type="button" class="right_title"><a class="right_title" href="./pofileBooked">current booked</a></button>
+                        <button type="button" class="right_title"><a class="right_title" href="./logout">Logout</a></button>
+                        <button type="button" class="right_title"><a class="right_title" href="./">Homepage</a></button>
+                        <button type="button" class="right_title"><a class="right_title" href="./pofileBooked">Currently Booked</a></button>
                     <%}%>
     </div>
 
