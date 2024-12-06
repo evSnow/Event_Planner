@@ -9,35 +9,25 @@
 </head> <!-- Basic formatting -->
 
 <body>
-    <div class="titleBox1">
+    <div class="titleBox">
         <div class="homapage_title">
         <h1>Event Planner</h1>
         </div>
-    </div> <!-- Main titlepage -->
-
-    <div class="titleBox">
         <div id="list_menu">
             <button onclick="drop_menu()" class="drop_but">list</button>
             <div id="display_dropdown" class="dropdown_cont">
                 <a class="dropList" href="./calendar">Calendar</a>
-                <a class="dropList" href="./ticket">Payment</a>
                 <a class="dropList" href="./book">Book Event</a>
-                <a class="dropList" href="./createEvent">Create Event</a>
             </div>
-        </div> <!-- Dropdown menu -->
 
-        <div class="titleList">
             <button type="button" class="right_title"><a class="right_title" href="./logout">Logout</a></button>
             <button type="button" class="right_title"><a class="right_title" href="./">Homepage</a></button>
-            <button type="button" class="right_title"><a class="right_title" href="./pofileBooked">Currently Booked</a></button>
-        </div> <!-- Rightward buttons -->
-        </div> <!-- Rightward buttons -->
     </div>
 
     <div class="event_menu">
         <div class="display">
             <div class="event_org">
-                <h2>Current Event</h2>
+                <h2>Current Events</h2>
             </div> <!-- Title -->
 
 
@@ -45,7 +35,6 @@
             
             <% if (AccSession.booked!=0) {   %>
                 <% for(var i=0; i<AccSession.booked.length; i++){%>
-                    <hr class="line">
                 
                 <div class="event">
                     <div class="word">
@@ -54,7 +43,6 @@
                     </div>    
                 </div>
 
-            <hr class="line">
                 <% }%> <!-- End of loop -->
                 <% } %> <!-- End of if statement -->
         </div>

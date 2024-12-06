@@ -13,7 +13,6 @@
     <div class="titleBox">
         <div class="homapage_title">
         <h1>Event Planner</h1>
-        <h1>Event Planner</h1>
         </div>
         <div id="list_menu">
             <button onclick="drop_menu()" class="drop_but">list</button>
@@ -31,14 +30,11 @@
         <div class="display">
             <div class="event_org">
                 <h2>Current Events</h2>
-                <h2>Current Events</h2>
             </div> <!-- Title -->
 
             <div class="event">
                 <button type="button" class="add"><a class="add" href="/book">+</a></button>
-                <button type="button" class="add"><a class="add" href="/book">+</a></button>
                 <div class="word">
-                    <div class="event_title"><!--Click the + to--> Add an event...</div>
                     <div class="event_title"><!--Click the + to--> Add an event...</div>
                 </div>
             </div> <!-- Addition button + info -->
@@ -48,27 +44,11 @@
                 <div class="word">
                     <div class="event_title">Title</div>
                     <div class="event_small_summery">Small Summary</div>
-                    <div class="event_title">Title</div>
-                    <div class="event_small_summery">Small Summary</div>
                 </div>
             </div> <!-- Information -->
 
 
             <% if (Event.length>0) {   %>
-            <% Event.forEach(Event => { %>
-                <div class="linebox">
-                </div>
-                <form action="/direct" method="post">
-                <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
-            <button type="submit" class="event_button">
-
-            <div class="event">
-                <img class="symbol" src="/image/defultLogo.png">
-                <div class="word">
-                    <div class="event_title"><%= Event.firstName%></div>
-                    <div class="event_summery"><%= Event.small_description%></div>
-                </div>
-            </div>
             <% Event.forEach(Event => { %>
                 <div class="linebox">
                 </div>
