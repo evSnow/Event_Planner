@@ -198,11 +198,18 @@ app.post('/direct', (req,res)=>{
     res.render('book', { title: 'book' , ses:temp});
   });
 app.post('/ticketCreate', (req,res,next) =>{
-  const pay= new Pay(req.body);
-  Account.updateOne({username: req.session.user.username},{$push: {booked: req.body.name}},{$set: {payMethod: pay}})
+  //var payed= new Pay(req.body);
+  console.log(req.body);
+  //console.log(pay);
+  console.log("dog");
+  Account.updateOne({username: req.session.user.username},{$push: {booked: req.body.name}})
     .then((result)=>{
       console.log(result);
+      Account.updateOne({username: req.session.user.username},{$set: {firstName: req.body.firstName, lastName: req.body.lastName, cardNumber:req.body.cardNumber, expire:req.body.expire, cvv:req.body.cvv}})
+      .then((result)=>{
+        console.log(result);
       res.redirect('/');
+      })
     })
 
 })

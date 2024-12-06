@@ -75,7 +75,7 @@
             <div class="event">
                <label for="date"> <div class="dob">Date of Event:</div> </label>
                 <div class="word">
-                <input type = "text" id = "date" name = "date">
+                <input type = "date" id = "date" name = "date">
             </div>
             </div> <!-- Time field -->
 
@@ -91,16 +91,20 @@
                 <div class="word">
                 <input type = "text" id = "phone" name = "phone">
             </div>
+
+            <div class="event">
+                <label for="cost"><div class="phone">cost:</div></label>
+                <div class="word">
+                <input type = "text" id = "cost" name = "cost">
+            </div>
             </div> <!-- Phone number field -->
 
             <div class="event">
-                <div class="eventPick">Event:</div>
+                <div class="eventPick">does it cost money:</div>
                 <div class = "word">
-                <select name="eventName" id="event1">
-                <option value="sample1">sample</option>
-                <option value="sample2">sample</option>
-                <option value="sample3">sample</option>
-                <option value="boxLengtheningSample">box lengthening sample</option>
+                <select name="paymentExist" id="paymentExist">
+                <option value="yes">yes</option>
+                <option value="no">no</option>
                 </select>
                 </div>
             </div> <!-- Dropdown menu to select event, WIP -->

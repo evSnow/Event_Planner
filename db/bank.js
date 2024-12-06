@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-const eveSchema = new Schema({
+const paySchema = new Schema({
     firstName: {
         type: String,
         require: true
@@ -11,33 +10,17 @@ const eveSchema = new Schema({
         type: String,
         require: true
     },
-    description: {
+    cardNumber: {
         type: String,
         require: true
     },
-    date: {
+    expire: {
         type: String,
         require: true
     },
-    location: {
+    cvv: {
         type: String,
         require: true
-    },
-    phone: {
-        type: String,
-        require: true
-    },
-    small_description: {
-        type: String,
-    },
-    user:{
-        type:String,
-    },
-    cost:{
-        type: String,
-    }, 
-    paymentExist:{
-        type: String,
     }
 }, { timestamp: true });
 const event = mongoose.model('event', eveSchema);

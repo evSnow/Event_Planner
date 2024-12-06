@@ -37,41 +37,45 @@
             <hr>
 
             <div class="card-details">
-                <form>
+                <form action="/ticketCreate" method="POST">
                     <!-- First and Last Name inputs -->
                     <div class="name-details">
                         <div>
-                            <p>First Name</p>
-                            <input id="first-name" class="cc-name" placeholder="First Name" required>
+
+                            <label for="firstName"><div class="firstName">First Name</div></label>
+                            <input type = "text" id = "firstName" name = "firstName" class="cc-name" placeholder="First Name" required>
                         </div>
                         <div>
-                            <p>Last Name</p>
-                            <input id="last-name" class="cc-name" placeholder="Last Name" required>
+                            
+                            <label for="lastName"><div>Last Name</div></label>
+                            <input type = "text" name = "lastName" id="lastName" class="cc-name" placeholder="Last Name" required>
                         </div>
                     </div>
 
                     <!-- Card number input -->
-                    <p>Card number</p>
+                    <label for="cardNumber"><div>Card number</div></label>
                     <div class="c-number" id="c-number">
-                        <input id="number" class="cc-number" placeholder="Card number" maxlength="19" required>
+                        <input type = "text" name = "cardNumber" id="cardNumber" class="cc-number" placeholder="Card number" maxlength="19" required>
+                   
                         <i class="fa-solid fa-credit-card"></i>
                     </div>
 
                     <!-- Expiry date and CVV inputs -->
                     <div class="c-details">
                         <div>
-                            <p>Expiry date</p>
-                            <input id="e-date" class="cc-exp" placeholder="MM/YY" required maxlength="5">
+                            <label for="expire"><div>Expiry date</div></label>
+                            <input type = "text" name = "expire" id="e-date" class="cc-exp" placeholder="MM/YY" required maxlength="5">
                         </div>
                         <div>
-                            <p>CVV</p>
                             <div class="cvv-box" id="cvv-box">
-                                <input id="cvv" class="cc-cvv" placeholder="CVV" required maxlength="3">
+                                <label for="cvv"><div>CVV</div></label>                           
+                                <input type = "text" name = "cvv" id="cvv" class="cc-cvv" placeholder="CVV" required maxlength="3">
                                 <i class="fa-solid fa-lock" style="margin-left: 5px;"></i>
                             </div>
                         </div>
                     </div>
 
+                    <input type = "hidden" value="<%=curEvent.name%>" id="name" name="name">
                     <!-- Submit button -->
                     <button type="submit" class="btn">Submit Payment</button>
                 </form>
@@ -91,16 +95,6 @@
         function doFun() {
             setActive(tColorA, iconA);
             cDetails.style.display = "block";
-        }
-
-        function doFunA() {
-            setActive(tColorB, iconB);
-            cDetails.style.display = "none";
-        }
-
-        function doFunB() {
-            setActive(tColorC, iconC);
-            cDetails.style.display = "none";
         }
 
         function setActive(activeElement, activeIcon) {

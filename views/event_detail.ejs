@@ -62,10 +62,14 @@
                 <div class="event">
                 <ul class="row">email: <%= Event.phone%></ul>
                 </div>
+                <div class="event">
+                    <ul class="row">paymentExist: <%= Event.paymentExist%></ul>
+                    </div>
                 <%if(ses==0){}else{ %>
                 <div class="event">
                     <form action="/currentBook" method="post"> 
                         <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
+                        <input type="hidden" value="<%=Event.paymentExist%>" id="paymentExist" name="paymentExist">
                     <button type="submit">
                         book now
                     </button></form>
