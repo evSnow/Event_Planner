@@ -12,7 +12,7 @@ body{
   padding: 0 10px;
   justify-content: center;
   min-height: 100vh;
-  background: #9B59B6;
+  background: linear-gradient(to right, #16222A 0%, #3A6073 100%);
 }
 .wrapper{
   width: 450px;
