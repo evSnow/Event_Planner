@@ -13,9 +13,32 @@ body {
     font-size: 16px;
     line-height: 1.6;
     padding: 20px;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+/* Body Styling */
+body {
+    background: linear-gradient(to right, #16222A 0%, #3A6073 100%);
+    color: #f8f9fa;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+
 .title_card{
+    background-color: #34495e;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     background-color: #34495e;
     color: #ffffff;
     padding: 20px;
@@ -30,7 +53,21 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
 }
+
+.title a {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
 
 .title a {
     background-color: #27ae60;
@@ -61,6 +98,26 @@ body {
     transform: translateY(-2px);
 }
 
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.back{
+    background-color: #16a085;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.back:hover{
+    background-color: #149174;
+    transform: translateY(-2px);
+}
+
 .individual{
     color: green;
 }
@@ -70,9 +127,17 @@ body {
     padding: 20px;
     text-align: right;
     width: 250px;
+    background-color: #34495e;
+    color: #ffffff;
+    padding: 20px;
+    text-align: right;
+    width: 250px;
     display:flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     margin: auto;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);

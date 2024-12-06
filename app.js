@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const Account= require('./db/account');
 const Event=require('./db/event');
 const Pay=require('./db/account');
+const Pay=require('./db/account');
 const session = require('express-session');
 var cookieSession = require('cookie-session');
 var cookieParser = require('cookie-parser');
@@ -13,6 +14,7 @@ var indexRouter = require('./routes/index');
 //var calendarRouter = require('./routes/calendarRoute.js');
 var usersRouter = require('./routes/users');
 var accountRouter = require('./routes/account_creat');
+//var bookRouter= require('./routes/book');
 //var bookRouter= require('./routes/book');
 var loginRouter= require('./routes/login');
 //var logoutRouter= require('./routes/logout');
@@ -51,6 +53,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 
 app.use('/account_creat', accountRouter, );
+//app.use('/book', bookRouter);
 //app.use('/book', bookRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
@@ -129,6 +132,8 @@ app.get("/pofileBooked", (req,res)=>{
 
 
 
+
+
 app.post("/loginNow", async function (req,res) {
   try{
   console.log(req.body);
@@ -174,13 +179,20 @@ app.post('/direct', (req,res)=>{
   } else{
     var temp = Account.findOne({username: req.session.user.username});
   }
+  if (req.session.user==null){ 
+  var temp = 0;
+  } else{
+    var temp = Account.findOne({username: req.session.user.username});
+  }
   //.log(req.body.name)
+  //var loginAccount= await getAccountUsername(anna);
   //var loginAccount= await getAccountUsername(anna);
   console.log(req.body.name)
   Event.findOne({firstName: req.body.name})
   .then((result) =>{
     console.log(result);
 
+    res.render('event_detail',  { Event:result, ses:temp});
     res.render('event_detail',  { Event:result, ses:temp});
     })
     .catch((err)=> {
@@ -229,6 +241,8 @@ app.post('/ticketCreate', (req,res,next) =>{
       .catch((err)=> {
         console.log(err)
       })
+    }
+  })
     }
   })
 app.get("/", ( req, res) =>{

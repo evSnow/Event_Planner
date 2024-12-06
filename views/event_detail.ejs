@@ -11,7 +11,7 @@
 <body>
     <div class="titleBox1">
         <div class="homapage_title">
-        <h1>Event planner</h1>
+        <h1>Event Planner</h1>
         </div>
     </div> <!-- Main titlepage -->
 
@@ -27,13 +27,13 @@
 
         <div class="titleList">
             <%if(ses==0){%>
-            <button type="button" class="right_title"><a class="right_title" href="./account_creat">create account</a></button>
-            <button type="button" class="right_title"><a class="right_title" href="./login">login</a></button>
-            <button type="button" class="right_title"><a class="right_title" href="./">homepage</a></button>
+            <button type="button" class="right_title"><a class="right_title" href="./account_creat">Create Account</a></button>
+            <button type="button" class="right_title"><a class="right_title" href="./login">Login</a></button>
+            <button type="button" class="right_title"><a class="right_title" href="./">Homepage</a></button>
             <%}else{%>
-                <button type="button" class="right_title"><a class="right_title" href="./logout">logout</a></button>
-                <button type="button" class="right_title"><a class="right_title" href="./">homepage</a></button>
-                <button type="button" class="right_title"><a class="right_title" href="./pofileBooked">current booked</a></button>
+                <button type="button" class="right_title"><a class="right_title" href="./logout">Logout</a></button>
+                <button type="button" class="right_title"><a class="right_title" href="./">Homepage</a></button>
+                <button type="button" class="right_title"><a class="right_title" href="./pofileBooked">Currently Booked</a></button>
             <%}%>
         </div> <!-- Rightward buttons -->
     </div>
@@ -51,16 +51,16 @@
                 <ul class="row">Description: <%= Event.description%></ul>
                 </div>
                 <div class="event">
-                <ul class="row">date: <%= Event.date%></ul>
+                <ul class="row">Date: <%= Event.date%></ul>
                 </div>
                 <div class="event"> 
                 <ul class="row">Time:  <%= Event.lastName%></ul>
                 </div>
                 <div class="event">
-                <ul class="row">location: <%= Event.location%></ul>
+                <ul class="row">Location: <%= Event.location%></ul>
                 </div>
                 <div class="event">
-                <ul class="row">email: <%= Event.phone%></ul>
+                <ul class="row">Email: <%= Event.phone%></ul>
                 </div>
                 <div class="event">
                     <ul class="row">paymentExist: <%= Event.paymentExist%></ul>
@@ -71,7 +71,7 @@
                         <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
                         <input type="hidden" value="<%=Event.paymentExist%>" id="paymentExist" name="paymentExist">
                     <button type="submit">
-                        book now
+                        Book Now
                     </button></form>
                  <% }  %>
                 </div>
