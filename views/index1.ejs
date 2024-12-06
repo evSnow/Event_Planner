@@ -9,41 +9,34 @@
 </head> <!-- Basic formatting -->
 
 <body>
-    <div class="titleBox1">
+<body>
+    <div class="titleBox">
         <div class="homapage_title">
         <h1>Event Planner</h1>
         </div>
-    </div> <!-- Main titlepage -->
-
-    <div class="titleBox">
         <div id="list_menu">
             <button onclick="drop_menu()" class="drop_but">list</button>
             <div id="display_dropdown" class="dropdown_cont">
                 <a class="dropList" href="./calendar">Calendar</a>
                 <a class="dropList" href="./ticket">Payment</a>
                 <a class="dropList" href="./book">Book Event</a>
-                
             </div>
-        </div> <!-- Dropdown menu -->
-
-        <div class="titleList">
+            <button type="button" class="right_title"><a class="right_title" href="./account_creat">Create Account</a></button>
             <button type="button" class="right_title"><a class="right_title" href="./logout">Logout</a></button>
             <button type="button" class="right_title"><a class="right_title" href="./">Homepage</a></button>
-            <button type="button" class="right_title"><a class="right_title" href="./pofileBooked">Currently Booked</a></button>
-        </div> <!-- Rightward buttons -->
-        </div> <!-- Rightward buttons -->
+        </div> <!-- Dropdown menu -->
     </div>
 
-    <div class="event_menu">
+      <div class="event_menu">
         <div class="display">
             <div class="event_org">
-                <h2>Current Event</h2>
+                <h2>Current Events</h2>
             </div> <!-- Title -->
 
             <div class="event">
-                <button type="button" class="add"><a href="/book">+</a></button>
+                <button type="button" class="add"><a class="add" href="/book">+</a></button>
                 <div class="word">
-                    <div class="event_title">Click the + to add an event...</div>
+                    <div class="event_title"><!--Click the + to--> Add an event...</div>
                 </div>
             </div> <!-- Addition button + info -->
 
@@ -55,20 +48,21 @@
                 </div>
             </div> <!-- Information -->
 
-            
             <% if (Event.length>0) {   %>
-                <% Event.forEach(Event => { %>
-                    <form action="/direct" method="post"> 
-                    <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
-                <button type="submit" class="event_button">
-                
-                <div class="event">
-                    <img class="symbol" src="/image/defultLogo.png">
-                    <div class="word">
-                        <div class="event_title"><%= Event.firstName%></div>
-                        <div class="event_summery"><%= Event.small_description%></div>
-                    </div>    
+            <% Event.forEach(Event => { %>
+                <div class="linebox">
                 </div>
+                <form action="/direct" method="post">
+                <input type="hidden" value="<%=Event.firstName%>" id="name" name="name">
+            <button type="submit" class="event_button">
+
+            <div class="event">
+                <img class="symbol" src="/image/defultLogo.png">
+                <div class="word">
+                    <div class="event_title"><%= Event.firstName%></div>
+                    <div class="event_summery"><%= Event.small_description%></div>
+                </div>
+            </div>
 
                 
             </button></form>
