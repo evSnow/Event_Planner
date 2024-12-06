@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Account= require('./db/account');
 const Event=require('./db/event');
+const Pay=require('./db/account');
 const session = require('express-session');
 var cookieSession = require('cookie-session');
 var cookieParser = require('cookie-parser');
@@ -12,7 +13,7 @@ var indexRouter = require('./routes/index');
 //var calendarRouter = require('./routes/calendarRoute.js');
 var usersRouter = require('./routes/users');
 var accountRouter = require('./routes/account_creat');
-var bookRouter= require('./routes/book');
+//var bookRouter= require('./routes/book');
 var loginRouter= require('./routes/login');
 //var logoutRouter= require('./routes/logout');
 var event_editRouter= require('./routes/event_edit');
@@ -50,7 +51,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 
 app.use('/account_creat', accountRouter, );
-app.use('/book', bookRouter);
+//app.use('/book', bookRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 //app.use('/logout', logoutRouter);
@@ -126,6 +127,8 @@ app.get("/pofileBooked", (req,res)=>{
 })
 
 
+
+
 app.post("/loginNow", async function (req,res) {
   try{
   console.log(req.body);
@@ -166,46 +169,61 @@ app.post('/direct', (req,res)=>{
   //console.log(req.body);
   console.log("hello");
   console.log(req.session.user);
+  if (req.session.user==null){ 
+  var temp = 0;
+  } else{
+    var temp = Account.findOne({username: req.session.user.username});
+  }
   //.log(req.body.name)
-  
+  //var loginAccount= await getAccountUsername(anna);
   console.log(req.body.name)
   Event.findOne({firstName: req.body.name})
   .then((result) =>{
     console.log(result);
 
-    res.render('event_detail',  { Event:result});
+    res.render('event_detail',  { Event:result, ses:temp});
     })
     .catch((err)=> {
       console.log(err)
     })
   })
 
-  app.post('/currentBook', (req,res)=>{
-    console.log("hello");
-
-    Account.updateOne({username: req.session.user.username},{$push: {booked: req.body.name}})
+  app.get('/book', (req, res, next)=> {
+    if (req.session.user==null){ 
+      var temp = 0;
+      } else{
+        var temp = Account.findOne({username: req.session.user.username});
+      }
+      console.log(temp);
+    res.render('book', { title: 'book' , ses:temp});
+  });
+app.post('/ticketCreate', (req,res,next) =>{
+  const pay= new Pay(req.body);
+  Account.updateOne({username: req.session.user.username},{$push: {booked: req.body.name}},{$set: {payMethod: pay}})
     .then((result)=>{
       console.log(result);
+      res.redirect('/');
+    })
+
+})
+  app.post('/currentBook', (req,res,next)=>{
+    console.log(req.body.paymentExist);
+    console.log(req.body.name);
+
+    if (req.body.paymentExist=="yes"){
+      res.render('ticket', { curEvent: req.body.name});
+    }else{    
+    Account.updateOne({username: req.session.user.username},{$push: {booked: req.body.name}})
+    .then((result)=>{
+      //console.log(result);
       res.redirect('/');
     }
   )
       .catch((err)=> {
         console.log(err)
       })
-    })
-
-//app.get('/event_detail', (req, res)=>{
- 
-
-/*
-app.post('/event_detail', (req,res)=> {
-  Event.find()
-  .then((result) =>{
-})
-*/
-//app.get('/', (req, res) => {
-//  res.render('/books')
-//});
+    }
+  })
 app.get("/", ( req, res) =>{
   console.log(req.session.username);
   console.log(req.session.id);
@@ -234,7 +252,6 @@ app.get("/", ( req, res) =>{
       
   }
   })
-
 
 
   app.get('/calendar', function(req, res, next) {
