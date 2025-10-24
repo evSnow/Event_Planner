@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calendar App</h1>
+            <input type="text" id="searchInput" placeholder="Search events...">
+        </header>
+        <main>
+            <div class="calendar-controls">
+                <button id="prevMonth">Previous</button>
+                <p class="current-date"></p>
+                <button id="nextMonth">Next</button>
+            </div>
+            <div class="calendar">
+                <ul class="weeks">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                </ul>
+                <ul class="days"></ul>
+            </div>
+        </main>
+        <div id="eventModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Create Event</h2>
+                <form id="eventForm">
+                    <input type="text" id="eventTitle" placeholder="Event Title" required>
+                    <input type="datetime-local" id="eventStart" required>
+                    <input type="datetime-local" id="eventEnd" required>
+                    <input type="text" id="eventLocation" placeholder="Event Location">
+                    <textarea id="eventDescription" placeholder="Event Description"></textarea>
+                    <select id="eventType">
+                        <option value="General">General</option>
+                        <option value="Meeting">Meeting</option>
+                        <option value="Workshop">Workshop</option>
+                    </select>
+                    <select id="reminderTime">
+                        <option value="5">5 minutes before</option>
+                        <option value="10">10 minutes before</option>
+                        <option value="30">30 minutes before</option>
+                    </select>
+                    <button type="submit">Add Event</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
